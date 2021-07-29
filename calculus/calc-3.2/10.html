@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>  
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script id="AMSmath" src="TeX/AMSmath.js"></script>
+    <script src="../../js/mathjax-config.js" ></script>
+    <script type="text/javascript" id="MathJax-script" 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <script type="text/javascript" id="MathJax-script" 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <head>
+        <link rel="stylesheet" href="../../css/hamburger-menu.css">
+        <link rel="stylesheet" href="../../css/layout.css">
+        <link rel="stylesheet" href="../../css/exercises-style.css">
+        <link rel="stylesheet" href="../../css/calculus/3.2-exercises.css">
+        <title> Problem 10 — 3.2 Exercises </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Valerie">
+    </head>
+
+    <!--section tabs-->
+    <div class="tab">
+        <span class="tab-button-background"> <a href="9.html" class="tab-button"> < Previous Problem </a> </span>
+        <span class="tab-button-background"> <a href="../3.2.html" class="tab-button"> Notes </a> </span>
+        <span class="tab-button-background"> <a href="../3.2-exercises.html" class="tab-button"> Exercises </a> </span>
+        <span class="tab-button-background"> <a href="11.html" class="tab-button"> Next Problem > </a> </span>
+        <!--nav menu button-->
+        <span class="menu-button__background" style="text-align: left;">
+            <div class="menu-btn">
+                <div class="menu-btn__burger">
+                </div>
+            </div> 
+        </span>
+    </div>
+
+    <!--nav menu-->
+    <div class="menu-button__background">
+        <div class="menu-btn">
+            <div class="menu-btn__burger">
+            </div>
+        </div> 
+    </div>
+    <div id="popupMenuItems" class="menu-popup"> 
+        <div class="menu-list">
+            <hr class="menu-hr">
+            <p> 
+                <a class="menu-link" href="../../index.html"> 
+                    <div class="menu-item"> 
+                        <img src="../../images/icons/home-icon.png" class="menu-icon" alt="">
+                        Home 
+                    </div>
+                </a> 
+            </p>
+            <p> 
+                <a class="menu-link" href="../../about.html"> 
+                    <div class="menu-item"> 
+                        <img src="../../images/icons/about.png" class="menu-icon" alt="">
+                        About 
+                    </div>
+                </a> 
+            </p>
+            <p> 
+                <a class="menu-link" href="../../faq.html"> 
+                    <div class="menu-item"> 
+                        <img src="../../images/icons/question-mark-line.png" class="menu-icon" alt="">
+                        FAQ
+                    </div>
+                </a> 
+            </p>
+            <p> 
+                <a class="menu-link" href="../../contact.html"> 
+                    <div class="menu-item"> 
+                        <img src="../../images/icons/email.png" class="menu-icon" alt="">
+                        Contact
+                    </div>
+                </a> 
+            </p>
+            <hr class="menu-hr">
+            <p class="menu-link" style="color: gray;"> COURSES </p>
+            <p> <a class="menu-link" href="../algebra.html"> Algebra </a> </p>
+            <p> <a class="menu-link" href="../trig.html"> Trigonometry </a> </p>
+            <p> <a class="menu-link" href="../calculus.html"> Calculus </a> </p>
+            <p> <a class="menu-link" href="../statistics.html"> Statistics </a> </p>
+        </div>
+    </div>
+
+    <body class="background">
+        <h1> Problem 10 — 3.2 Exercises (Indeterminate Forms and L'Hôpital's Rule) </h1>
+        <!--section body-->
+        <section class="background-text">
+            <!--problem boxed-->
+            <div class="box-solution">
+                <div class="box-solution__problem">
+                    <div class="box-solution__body">
+                        <p>
+                            Evaluate \(\ds \lim_{x \to 1^+} \left(x - 1\right)^{3/(x^2 - 1)} \)
+                            or state that it does not exist.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--solution-->
+            <div class="exercise-solution">
+                <p>
+                    <span class="solution-text">SOLUTION</span>
+                    The limit is in the indeterminate form \(0^\infty.\)
+                    We let \(y = (x - 1)^{3/(x^2 - 1)}.\)
+                    It then follows that 
+                    \[
+                    \ba
+                    \ln(y) &= \frac{3}{x^2 - 1} \ln(x - 1) \\
+                    \lim_{x \to 1^+} \ln(y) &= \lim_{x \to 1^+} \frac{3}{x^2 - 1} \ln(x - 1), \\
+                    \ea
+                    \]
+                    which is in the indeterminate form \(0 \times \infty.\)
+                    We can then rewrite the limit as the quotient 
+                    \[\lim_{x \to 1^+} \frac{3\ln(x - 1)}{1/(x^2 - 1)}, \]
+                    which is in the indeterminate form \(0/0,\) 
+                    for which we can utilize L'Hôpital's Rule to obtain 
+                    \[
+                    \ba 
+                    \lim_{x \to 1^+} \frac{3/(x - 1)}{-2x/(x^2 - 1)^2} 
+                    &= \lim_{x \to 1^+} \frac{3}{2x} \frac{(x - 1)}{-(x + 1)^2(x - 1)^2} \\
+                    &= \lim_{x \to 1^+} \frac{3}{2x} \frac{1}{-(x + 1)^2 (x - 1)} \\
+                    &= -\infty.
+                    \ea 
+                    \]
+                    Therefore, because \(\ds \lim_{x \to 1^+} \ln(y) = -\infty,\)
+                    it follows that \(\ds \lim_{x \to 1^+} e^{-\infty} = \box{0.}\)
+                </p>
+            </div>
+        </section>
+    </body>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</html> 

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="../js/mathjax-config.js" defer></script>
+    <script type="text/javascript" id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <head>
+        <link rel="stylesheet" href="../css/hamburger-menu.css">
+        <link rel="stylesheet" href="../css/layout.css">
+        <link rel="stylesheet" href="../css/exercises-style.css">
+        <link rel="stylesheet" href="../css/calculus/1.4-exercises.css">
+        <title> 3.2 Exercises — Indeterminate Forms and L'Hôpital's Rule </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Valerie">
+    </head>
+
+    <!--section tabs-->
+    <div class="tab">
+        <span class="tab-button-background"> <a href="3.2-exercises.html" class="tab-button"> < Previous Section </a> </span>
+        <span class="tab-button-background"> <a href="3.2.html" class="tab-button"> Notes </a> </span>
+        <span class="tab-button-background"> <a href="3.2-exercises.html" class="tab-button"> Exercises </a> </span>
+        <span class="tab-button-background"> <a href="3.3-exercises.html" class="tab-button"> Next Section > </a> </span>
+        <!--nav menu button-->
+        <span class="menu-button__background" style="text-align: left;">
+            <div class="menu-btn">
+                <div class="menu-btn__burger">
+                </div>
+            </div> 
+        </span>
+    </div>
+
+    <!--nav menu-->
+    <div class="menu-button__background">
+        <div class="menu-btn">
+            <div class="menu-btn__burger">
+            </div>
+        </div> 
+    </div>
+    <div id="popupMenuItems" class="menu-popup"> 
+        <div class="menu-list">
+            <hr class="menu-hr">
+            <p> 
+                <a class="menu-link" href="index.html"> 
+                    <div class="menu-item"> 
+                        <img src="../images/icons/home-icon.png" class="menu-icon" alt="">
+                        Home 
+                    </div>
+                </a> 
+            </p>
+            <p> 
+                <a class="menu-link" href="about.html"> 
+                    <div class="menu-item"> 
+                        <img src="../images/icons/about.png" class="menu-icon" alt="">
+                        About 
+                    </div>
+                </a> 
+            </p>
+            <p> 
+                <a class="menu-link" href="faq.html"> 
+                    <div class="menu-item"> 
+                        <img src="../images/icons/question-mark-line.png" class="menu-icon" alt="">
+                        FAQ
+                    </div>
+                </a> 
+            </p>
+            <p> 
+                <a class="menu-link" href="contact.html"> 
+                    <div class="menu-item"> 
+                        <img src="../images/icons/email.png" class="menu-icon" alt="">
+                        Contact
+                    </div>
+                </a> 
+            </p>
+        
+
+            <hr class="menu-hr">
+            <p class="menu-link" style="color: gray;"> COURSES </p>
+            <p> <a class="menu-link" href="algebra.html"> Algebra </a> </p>
+            <p> <a class="menu-link" href="trig.html"> Trigonometry </a> </p>
+            <p> <a class="menu-link" href="calculus.html"> Calculus </a> </p>
+
+        </div>
+    </div>
+
+    <body class="background">
+            <!--section title-->
+            <h1> 3.2 Exercises — Indeterminate Forms and L'Hôpital's Rule </h1>
+            <!--section body-->
+            <section class="background-text">
+                <hr size=6 noshade="true">
+                <p class="exercises-hint">
+                    Click on a problem number to view the solution.
+                </p>
+
+                <p class="problems-note"> For each of exercises 1–15, evaluate the limit or state that it does not exist. </p>
+
+                <div class="problem-row">
+                    <!--1-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/1.html">\(1.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 0} \frac{2x}{\sin(x)}\)
+                        </div>
+                    </div>
+                    <!--2-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/2.html">\(2.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 2} \frac{x - 2}{3\sin(x - 2)}\)
+                        </div>
+                    </div>
+                    <!--3-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/3.html">\(3.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to \infty} \frac{\sqrt[3]{x + 3}}{\ln(x)}\)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-row">
+                    <!--4-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/4.html">\(4.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 4} \frac{x - 4}{8x - 16 - x^2} \)
+                        </div>
+                    </div>
+                    <!--5-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/5.html">\(5.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to \pi/2} \tan(x) \left(x - \frac{\pi}{2}\right) \)
+                        </div>
+                    </div>
+                    <!--6-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/6.html">\(6.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to \infty} x^2e^{-x} \)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-row">
+                    <!--7-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/7.html">\(7.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 0} x^3 \csc(x) \)
+                        </div>
+                    </div>
+                    <!--8-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/8.html">\(8.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to -\infty} x^2e^{3x}  \)
+                        </div>
+                    </div>
+                    <!--9-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/9.html">\(9.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 2^-} \sin(x - 2) \ln(2 - x) \)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-row">
+                    <!--10-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/10.html">\(10.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 1^+} \left(x - 1\right)^{3/(x^2 - 1)} \)
+                        </div>  
+                    </div>
+                    <!--11-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/11.html">\(11.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 2} \left(1 + \sin(x - 2)\right)^{1/(x^2 - 4)} \)
+                        </div>
+                    </div>
+                    <!--12-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/12.html">\(12.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 0^+} \left(\sin 2x \right)^{1/x}\)
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-row">
+                    <!--13-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/13.html">\(13.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 1^+} \left(\ln x \right)^{1/(x - 1)} \)
+                        </div>  
+                    </div>
+                    <!--14-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/14.html">\(14.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to \infty} \left(\sqrt{x}\right)^{e^{-x}} \)
+                        </div>
+                    </div>
+                    <!--15-->
+                    <div class="problem-body">
+                        <a class="problem-number-inline" href="calc-3.2/15.html">\(15.\)</a>
+                        <div class="problem-text">
+                            \(\ds \lim_{x \to 0^+} \left(\csc x \right)^{x}\)
+                        </div>
+                    </div>
+                </div>
+
+            <div class="problems-block">
+                <!--16-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/16.html">\(16.\)</a>
+                    <div class="problem-text">
+                        It is known that \(g(4) = 2\) and \(g'(4) = 6.\)
+                        Find \(\ds \lim_{x \to 4} \frac{2 - g(x)}{\sin(x - 4)}\) or state that it does not exist.
+                    </div>
+                </div>
+                <!--17-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/17.html">\(17.\)</a>
+                    <div class="problem-text">
+                        Functions \(f\) and \(g\) are differentiable functions.
+                        It is known that 
+                        \(\ds \lim_{x \to \infty} f(x) = 0,\) \(\ds \lim_{x \to \infty} g(x) = 0,\) 
+                        \(\ds \lim_{x \to \infty} f'(x) = 5,\)
+                        and \(\ds \lim_{x \to \infty} g'(x) = 8.\)
+                        Find \(\ds \lim_{x \to \infty} \left(\frac{f(x)}{g(x)}\right)^2 \) or state that it does not exist.
+                    </div>
+                </div>
+                <!--18-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/18.html">\(18.\)</a>
+                    <div class="problem-text"> 
+                        It is known that 
+                        \(\ds \lim_{x \to 0} f(x) = 3,\) \(\ds \lim_{x \to 0} f'(x) = 0,\) and \(\ds \lim_{x \to 0} f''(x) = 1.\) 
+                        Find \(\ds \lim_{x \to 0} \frac{4f(x) - 12 \cos(x)}{x^2}\) or state that it does not exist.
+                    </div>
+                </div>
+                <!--19-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/19.html">\(19.\)</a>
+                    <div class="problem-text">
+                        Let \(p\) and \(q\) be differentiable functions.
+                        Let \(q\) be a function defined by \(\ds q(x) = \frac{2p(x)^3 + 4}{x^2 - 6x}\)
+                        that satisfies \(\ds \lim_{x \to 0} q(x) = 12.\)
+                        It is known that \(\ds \lim_{x \to 0} q(x)\) can be evaluated using L'Hôpital's Rule.
+                        Find \(p(0)\) and \(p'(0).\)
+                    </div>
+                </div>
+                <!--20-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/20.html">\(20.\)</a>
+                    <div class="problem-text">
+                        Determine whether \(f(x) = 2 \sqrt[3]{x}\) or \(g(x) = \ln(x - 4)\) grows faster.
+                    </div>
+                </div>
+                <!--21-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/21.html">\(21.\)</a>
+                    <div class="problem-text">
+                        Determine whether \(f(x) = 2x^6 - 4x^5 + 2\) or \(g(x) = e^x\) grows faster.
+                    </div>
+                </div>
+                <!--22-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/22.html">\(22.\)</a>
+                    <div class="problem-text">
+                        Show that \(x^n\) grows faster than \(\ln(x)\) for all positive \(n.\)
+                    </div>
+                </div>
+                <!--23-->
+                <div class="problem-body">
+                    <a class="problem-number" href="calc-3.2/23.html">\(23.\)</a>
+                    <div class="problem-text">
+                        Show that \(e^x\) grows faster than \(x^n\) for all positive, finite \(n.\)
+                    </div>
+                </div>
+                </div>
+            </section>
+    </body>
+    <footer>
+        <div class="footer-sections">
+            <div class="footer-logo">
+                <div style="padding-bottom: 10%;"> VAL <br> CALC </div>
+                <a href="https://discord.gg/CbXg72x9Q9"> <img src="../images/discord-icon.png" class="footer-image-icon" alt=""> </a>
+                <img src="../images/paypal-icon.png" class="footer-image-icon" alt="">
+                <img src="../images/venmo-icon.png" class="footer-image-icon venmo-icon" alt="">
+            </div>
+            <div class="footer-nav-column">
+                <ul class="footer-nav-column__ul">
+                    <li>
+                        <a class="footer-link" href="../index.html">Home</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../about.html">About</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html">FAQ</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../contact.html">Contact</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../contact.html">Discord</a> 
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-column">
+                <ul class="footer-nav-column__ul">
+                    <li>
+                        <a class="footer-link" href="../index.html"> Section Notes </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html"> AP® Calculus  </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html"> Before Taking Calculus  </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html"> Practice Tests  </a> 
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-column">
+                <ul class="footer-nav-column__ul">
+                    <li>
+                        <a class="footer-link" href="../index.html">Report a Problem</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../about.html"> Terms of Use </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html">Privacy Policy</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../contact.html">Donate</a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <p class="ap-notice">
+        AP® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website.
+    </p>
+    </footer>
+    <script src="../js/hamburger-menu.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</html> 
