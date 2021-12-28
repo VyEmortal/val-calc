@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script id="AMSmath" src="TeX/AMSmath.js"></script>
+    <script src="../js/mathjax-config.js" ></script>
+    <script type="text/javascript" id="MathJax-script" 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <script type="text/javascript" id="MathJax-script" 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <script 
+        src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+    </script>
+    <head>
+        <link rel="stylesheet" href="../css/hamburger-menu.css">
+        <link rel="stylesheet" href="../css/layout.css">
+        <link rel="stylesheet" href="../css/notes-style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title> 3.8 — Optimization </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Valerie">
+    </head>
+    
+    <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+          $("#footer").load("footer.html"); 
+        });
+    </script> 
+    <nav class="tab">
+        <ul>
+            <li class="logo-header">
+                <a href="index.html">
+                    VALCULUS
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    Sections
+                </a>
+            </li>
+            <li>
+                <a href="about.html">
+                    AP&nbsp;Practice 
+                </a>
+            </li>
+            <li>
+                <a href="about.html">
+                    About 
+                </a>
+            </li>
+            <li>
+                <a>
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a>
+                    More
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <body class="background">
+        <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/assets/php/"; include($IPATH."header.html"); ?> 
+        <!--Section Title-->
+            <h1> 3.8 — Optimization </h1>
+            <!--Section Body-->
+            <section class="background-text">
+                <div class="pdf-panel">
+                    <ul>
+                        <li>
+                            <button> 
+                                <a target="_blank" rel="noreferrer noopener"> 
+                                    Notes <i class="fa fa-file-pdf-o"></i>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button> 
+                                <a target="_blank" rel="noreferrer noopener"> 
+                                    Exercises <i class="fa fa-file-pdf-o"></i>
+                                </a>
+                            </button>
+                        </li>
+                        <li>
+                            <button> 
+                                <a target="_blank" rel="noreferrer noopener"> 
+                                    Exercise Solutions <i class="fa fa-file-pdf-o"></i>
+                                </a>
+                            </button>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <hr size=6 noshade="true">                  
+                    <p>
+                        Optimization is the process by which a quantity of interest is maximized or minimized. 
+                        Examples of optimization problems include maximizing volume, 
+                        minimizing surface area, minimizing materials used, minimizing time, and maximizing profit. 
+                        It is a mathematical procedure that applies absolute extrema, which we covered in section
+                        <a href="3.4.html" style="color:plum">3.4</a>, to real-world problems. 
+                        The emphasis on efficiency in the everyday world cultivates the need for optimization in a wide range of applications, 
+                        including geometry, finance, and science. 
+                        In this section, we will discuss the strategy for solving these problems and reveal their diverse uses.
+                    </p>
+
+                    <!--example 1-->
+                    <div class="example-title"> EXAMPLE \(1\) </div>
+                    <div class="example">
+                        <!--example 1 problem-->
+                        <div class="example-problem">  
+                            The sum of two numbers \(a\) and \(b\) is \(14.\) 
+                            Find the values of \(a\) and \(b\) such that their product, \(P,\) is maximized. 
+                        </div>
+                    </div>
+                    <button onclick="toggle1()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 1 solution-->
+                    <div>
+                        <div id="solution1" class="solution">
+                            <p>
+                                To understand the problem, let us experiment with some possibilities: 
+                                <ul>
+                                    <li>
+                                        If \(a = 13\) and \(b = 1,\) then their product is \(13.\)
+                                    </li>
+                                    <li>
+                                        If \(a = 12\) and \(b = 2,\) then their product is \(24.\)
+                                    </li>
+                                    <li>
+                                        If \(a = 11\) and \(b = 3,\) then their product is \(33.\)
+                                    </li>
+                                </ul>
+                                The right combination of \(a\) and \(b\) maximizes the product \(P = ab\) 
+                                while adhering to the condition that \(a + b = 14.\) 
+                                Thus, we can write equations that express these qualities; 
+                                this procedure of modeling the problem is the key step in optimization problems.
+                                We have the requirement that \(a\) and \(b\) add up to \(14 \!:\)
+                                <div class="numbered-equations">
+                                    <p>
+                                        \(\ds a + b = 14.\)
+                                        <span> \((1)\) </span>
+                                    </p>
+                                </div>
+                                We also know that
+                                <div class="numbered-equations">
+                                    <p>
+                                        \(\ds P = ab.\)
+                                        <span> \((2)\) </span>
+                                    </p>
+                                </div>
+                                From equation \((1),\) we can derive an expression for \(b,\)
+                                \[a + b = 14 \implies b = 14 - a,\]
+                                and plug it into equation \((2).\) 
+                                Doing so produces
+                                \[P = ab = a(14 - a).\]
+                                (We could have also derived an expression for \(a\) from equation \((1)\) 
+                                and written \(P\) in terms of \(b.\))
+                                The objective of this algebraic manipulation is to obtain an expression for 
+                                our quantity of interest, \(P,\) solely in terms of a single variable, \(a.\) 
+                                Thus, we can now write \(P\) as \(P(a).\) 
+                                We wish to maximize the value of \(P(a),\) so we must find its critical points. 
+                                Calculating the derivative, \(P'(a),\) and equating it to \(0\) give
+                                \[
+                                \ba 
+                                P'(a) = 14 - 2a &= 0 \\
+                                a &= 7.
+                                \ea 
+                                \]
+                                We now need to justify whether \(a = 7\) corresponds to a relative maximum,
+                                relative minimum, or neither. For \(a \lt 7,\) \(P' \gt 0;\) 
+                                for \(a \gt 7,\) \(P' \lt 0.\)
+                                Because \(P'(a)\) changes sign from positive to negative at \(a = 7,\) 
+                                the First Derivative Test states that \(a = 7\) is the location of a relative maximum.
+                                We know that this value corresponds to an absolute maximum if we consider extreme cases: 
+                                <ul>
+                                    <li>
+                                        For \(a \lt 0,\) it follows that \(b \gt 0\) and \(P \lt 0.\) 
+                                    </li>
+                                    <li>
+                                        For \(a \gt 14,\) it follows that \(b \lt 0\) and \(P \lt 0.\) 
+                                    </li>
+                                </ul>
+                                Because \(P \to -\infty\) as \(a \to -\infty\) or \(a \to \infty,\) 
+                                the relative maximum must be the absolute maximum.
+                                <!--figure 1-->
+                                <div class="fig-1">
+                                    <img src="../images/Calculus/3/3.8/3.8-1.jpg" class="fig-1__image" alt="">
+                                </div>
+                                Alternatively, we could have noticed that \(P''(a) = -2\) \(\lt 0,\) 
+                                indicating that \(P\) is concave down and the local maximum at \(a = 7\) must be an absolute maximum.
+                                If we graph the function \(P(a) = a(14 - a),\) 
+                                then we notice that the point \((7, 49)\) is the vertex of the downward-opening parabola. (See Figure 1.)
+                            </p>
+                            <p>
+                                Thus, for \(a = 7,\) \(b = 14 - 7 = 7\) and \(P = 49.\) 
+                                We conclude that \(\boxed{a = 7 \; \textrm{and} \; b = 7}\) maximize the product \(P.\)
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Often, the most difficult step is understanding the problem and setting up equations. 
+                        Let us introduce some general problem-solving steps for optimization problems:
+                    </p>
+
+                    <!-- table for problem-solving steps -->
+                    <div class="steps-title"> SOLVING OPTIMIZATION PROBLEMS </div>
+                    <div class="steps">
+                        <div class="list-item">
+                            <div class="list-number"> \((1)\) </div>
+                            <div class="list-text">
+                                <u><b>Understand:</b></u> Understand the situation by drawing diagrams and testing various possibilities. 
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-number"> \((2)\) </div>
+                            <div class="list-text">
+                                <u><b>Notation:</b></u> Assign a variable—say, \(Q\)—to the quantity to maximize or minimize.
+                                Introduce notation by assigning algebraic quantities to unknown values. 
+                                It is helpful to use suggestive variables, such as \(A\) for area, \(d\) for distance, and \(L\) for length.
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-number"> \((3)\) </div>
+                            <div class="list-text">
+                                <u><b>Express:</b></u> Express \(Q\) in terms of one variable—say, \(x\)—to obtain \(Q(x).\)
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-number"> \((4)\) </div>
+                            <div class="list-text">
+                                <u><b>Minimize/Maximize:</b></u> Minimize or maximize the function \(Q(x).\) 
+                                (We will demonstrate methods for doing so.)                                
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        We have many options for justifying that a certain point is an absolute minimum or maximum. 
+                        After finding critical numbers, we can use the First Derivative Test or the Second Derivative Test to determine 
+                        whether each one corresponds to a relative minimum or maximum. 
+                        We can then consider the endpoints—either analytically, numerically, or graphically—to 
+                        determine the location of the absolute minimum or maximum.
+                    </p>
+
+                    <!-- 1st derivative test -->
+                    <div class="box-title"> FIRST DERIVATIVE TEST </div>
+                    <div class="box">
+                        <p>
+                            <div class="list-item">
+                                <div class="list-number"> (a) </div>
+                                <div class="list-text">
+                                    If \(f'\) changes sign from positive to negative at \(x = a,\) 
+                                    then \(f(a)\) is a relative maximum of \(f.\)
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-number"> (b) </div>
+                                <div class="list-text">
+                                    If \(f'\) changes sign from negative to positive at \(x = a,\) 
+                                    then \(f(a)\) is a relative minimum of \(f.\)
+                                </div>
+                            </div>
+                        </p>    
+                    </div>
+
+                    <br>
+
+                    <!-- 2nd derivative test -->
+                    <div class="box-title"> SECOND DERIVATIVE TEST </div>
+                    <div class="box">
+                        <p>
+                            <div class="list-item">
+                                <div class="list-number"> (a) </div>
+                                <div class="list-text">
+                                    If \(f''(a) \gt 0,\) then \(f(a)\) is a relative minimum of \(f.\) 
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-number"> (b) </div>
+                                <div class="list-text">
+                                    If \(f''(a) \lt 0,\) then \(f(a)\) is a relative maximum of \(f.\) 
+                                </div>
+                            </div>
+                        </p>    
+                    </div>
+
+                    <!--example 2-->
+                    <div class="example-title"> EXAMPLE \(2\) </div>
+                    <div class="example">
+                        <!--example 2 problem-->
+                        <div class="example-problem">  
+                            A farmer has \(40\) feet of fence to build a rectangular pen for her pumpkin farm. 
+                            She uses the side of her barn as one side of the pen. 
+                            What dimensions should she make the pen to maximize its area? 
+                        </div>
+                    </div>
+                    <button onclick="toggle2()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 2 solution-->
+                    <div>
+                        <div id="solution2" class="solution">
+                            <!--figure 2-->
+                            <div class="fig-2">
+                                <img src="../images/Calculus/3/3.8/3.8-2.jpg" class="fig-2__image" alt="">
+                            </div>
+                            <p>
+                                With optimization problems, it is always useful to create a quick sketch, as shown by Figure 2.
+                                For this problem, let \(w\) denote the width of the pen and let \(\ell\) denote the length. 
+                                Also let \(A\) be the area of the pen. 
+                                These suggestive variables facilitate understanding and avoid confusion.
+                            </p>
+                            <p>
+                                Let us construct a system of equations. We know that  
+                            </p>
+                            <div class="numbered-equations">
+                                <p>
+                                    \(2w + \ell = 40\)
+                                    <span> \((1)\) </span>
+                                </p>
+                                <p>
+                                    \(A = w \ell \)
+                                    <span> \((2)\) </span>
+                                </p>
+                            </div>
+                            <p>
+                                Rearranging equation \((1),\) we get \(\ell = 40 - 2w.\) 
+                                We can substitute this expression into equation \((2)\) to acquire
+                                \[ A = w \ell = w(40 - 2w). \]
+                                We now have a function of \(A\) composed solely of \(w\), 
+                                so we can take its derivative to find its critical numbers: 
+                                \[ \frac{\dd A}{\dd w} = 40 - 4w = 0 \implies w = 10. \]
+                            </p>
+                            <!--figure 3-->
+                            <div class="fig-3">
+                                <img src="../images/Calculus/3/3.8/3.8-3.jpg" class="fig-3__image" alt="">
+                            </div>
+                            <p>
+                                We know that \(0 \leq w \leq 20 \), 
+                                so we need to find the absolute maximum of \(A\) for all \(x\) in that interval. 
+                                The absolute maximum either lies at the endpoints of the interval or at its critical points. 
+                                By the First Derivative Test, \(w = 10\) corresponds to a relative maximum of \(A\) because 
+                                the sign of \(\dd A/ \dd w\) changes from positive to negative at that point.
+                                Conversely, at the endpoints, \(w = 0\) and \(w = 20,\) \(A = 0\) because the pen collapses into a straight line. 
+                                 
+                                Thus, \(w = 10\) must correspond to the absolute maximum of \(A.\)   
+                            </p>
+                            <p>
+                                For \(w = 10,\) we have \(\ell = 20.\)
+                                Thus, a pen with dimensions \(20\) feet by \(10\) feet produces the maximum area, \(200\) square feet. 
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        In the scope of a calculus class, the variety in optimization problems is limited;
+                        instructors usually present the same types of problems. 
+                        Therefore, you should familiarize yourself with the categories by practicing each one and understanding its solution process. 
+                    </p>
+
+                    <!--example 3-->
+                    <div class="example-title"> EXAMPLE \(3\) </div>
+                    <div class="example"> 
+                        <!--example 3 problem-->
+                        <div class="example-problem">  
+                            A can is designed to hold \(40\) cubic inches of water. 
+                            Find the dimensions that minimize the cost to manufacture the can. 
+                        </div>
+                    </div>
+                    <button onclick="toggle3()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 3 solution-->
+                    <div>
+                        <div id="solution3" class="solution">
+                            <!--figure 4-->
+                            <div class="fig-4">
+                                <img src="../images/Calculus/3/3.8/3.8-4.jpg" class="fig-4__image" alt="">
+                            </div>
+                            <p>
+                                We need to understand the problem by visualizing the scenario,
+                                so our first step is to sketch a picture. (See Figure 4.)
+                                To minimize the cost of manufacturing the can, we need to minimize the surface area. 
+                                The surface area of a cylinder of radius \(r\) and height \(h\) is given by 
+                                <div class="numbered-equations">
+                                    <p>
+                                        \(S = 2 \pi r^2 + 2 \pi r h.\)
+                                        <span> \((1)\) </span>
+                                    </p>
+                                </div>
+                                (The bases of the cylinder are circles of area \(\pi r^2,\) 
+                                and it is wrapped by a rectangular sheet of area \(2 \pi r h.\))
+                            </p>
+                            <p>
+                                We also know that the expression for the volume of the cylinder is 
+                                <div class="numbered-equations">
+                                    <p>
+                                        \(40 = \pi r^2 h.\)
+                                        <span> \((2)\) </span>
+                                    </p>
+                                </div>
+                                Our goal is to express the surface area, \(S,\) in terms of solely one variable. 
+                                This arrangement will enable us to find its minimum by differentiating and analyzing the critical numbers.
+                                From equation \((2),\) we have
+                                \[40 = \pi r^2 h \implies h = \frac{40}{\pi r^2},\]
+                                which we can plug into equation \((1)\) to get 
+                                \[
+                                \ba 
+                                S &= 2 \pi r^2 + 2 \pi r \left(\frac{40}{\pi r^2}\right) \\
+                                &= 2 \pi r^2 + \frac{80}{r}.
+                                \ea 
+                                \] 
+                                We can now differentiate this expression and equate it to \(0\) in order to find its critical points. 
+                                Doing so yields
+                                \[
+                                \ba 
+                                S'(r) = 4 \pi r - \frac{80}{r^2} &= 0 \\
+                                4 \pi r^3 &= 80 \\ 
+                                r &= \sqrt[3]{\frac{20}{\pi}}. \\
+                                \ea 
+                                \]
+                                
+                                <!--figure 5-->
+                                <div class="fig-5">
+                                    <img src="../images/Calculus/3/3.8/3.8-5.jpg" class="fig-5__image" alt="">
+                                </div>
+
+                                We now need to determine whether this critical number corresponds to a relative minimum, relative maximum, or neither.
+                                For \(r \lt \sqrt[3]{20/\pi},\) \(S' \lt 0;\) for \(r \gt \sqrt[3]{20/\pi},\) \(S' \gt 0.\)
+                                Because \(S'\) changes sign from negative to positive at the critical number \(r = \sqrt[3]{20/\pi},\) 
+                                it corresponds to a relative minimum by the First Derivative Test. 
+                                Additionally, since \(\lim_{r \to 0^+} S(r) = \infty\) and \(\lim_{r \to \infty} S(r) = \infty,\)
+                                there needs to be a minimum value of \(S(r),\) which must exist at the critical number. (See Figure 5.)
+                                This analysis confirms that \(r = \sqrt[3]{20/\pi}\) is the absolute minimum of \(S(r).\) 
+                                We then have \(r \approx 1.853\) \(\textrm{in.}\) and
+                                \[h = \frac{40}{\pi (20/\pi)^{2/3}} \approx 3.707 \; \textrm{in.}\]
+                                Thus, a can with a radius of \(1.853\) \(\textrm{in.}\) and height \(3.707\) \(\textrm{in.}\) 
+                                minimizes the cost of manufacturing while holding the required volume.
+                                Notice that, with a radius of \(1.853\) \(\textrm{in.},\) the cylinder's diameter is \(3.707\) \(\textrm{in.},\)
+                                the same dimension as the height. Symmetry promotes efficiency!
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        In some situations, minimizing or maximizing the square of a function is more convenient. 
+                        If \(f(x)\) has a minimum or maximum at \(x = a,\) then so does \(\sqrt{f(x)}.\) 
+                        This fact is useful in solving problems with square roots, such as in the context of distance.
+                    </p>
+                    <!--example 4-->
+                    <div class="example-title"> EXAMPLE \(4\) </div>
+                    <div class="example"> 
+                        <!--example 4 problem-->
+                        <div class="example-problem">  
+                            Find the point on the parabola \(y = x^2\) that is closest to the point \((0, 1).\)
+                        </div>
+                    </div>
+                    <button onclick="toggle4()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 4 solution-->
+                    <div>
+                        <div id="solution4" class="solution">
+                            <!--figure 6-->
+                            <div class="fig-6">
+                                <img src="../images/Calculus/3/3.8/3.8-6.jpg" class="fig-6__image" alt="">
+                            </div>
+                            <p>
+                                Let us first draw a picture representing the situation, as shown by Figure 6,
+                                and let \(d\) be this shortest distance. 
+                                From the Distance Formula, 
+                                \[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2,}\]
+                                we have \((x_1, y_1)\) \(= (0, 1)\) 
+                                and \((x_2, y_2)\) \(= (x, x^2),\)
+                                which is the point on the parabola.
+                                Thus, we obtain
+                                \[d = \sqrt{x^2 + (x^2 - 1)^2}.\]
+                                Our goal now is to find the critical points of \(d.\) 
+                                However, it is simplier to consider the square of the distance, \(d^2,\) 
+                                as both functions have the same critical points. 
+                                Let us reference \(d^2\) as the function 
+                                \[q(x) = x^2 + (x^2 - 1)^2,\]
+                                whose derivative is
+                                \[q'(x) = 4x^3 - 2x.\]
+                                Setting this expression equal to \(0\) gives
+                                \[
+                                \ba 
+                                4x^3 - 2x &= 0 \\
+                                2x(2x^2 - 1) &= 0 \implies \\
+                                x &= 0 \\ 
+                                x &= \frac{-1}{\sqrt 2} \\ 
+                                x &= \frac{1}{\sqrt 2}.
+                                \ea 
+                                \]
+                                Notice that, had we differentiated \(d,\) we would have gotten
+                                \[d'(x) = \frac{2x(2x^2-1)}{\sqrt{x^4 - x^2 + 1}},\]
+                                which has the same zeros as \(q'(x).\) 
+                                These same solutions demonstrate that the critical numbers of \(d\) and \(d^2\) are the same, 
+                                so considering \(d^2\) is more convenient. 
+                            </p>
+                            <!--figure 7-->
+                            <div class="fig-7">
+                                <img src="../images/Calculus/3/3.8/3.8-7.jpg" class="fig-7__image" alt="">
+                            </div>
+                            <p>
+                                We now need to analyze these critical numbers. 
+                                For \(x \lt 0,\) \(q' \lt 0;\) for \(x \gt 0,\) \(q' \gt 0.\)
+                                Thus, \(x = 0\) corresponds to a relative maximum. 
+                                We are interested in <i>minimizing</i> the distance, 
+                                so we can ignore this critical number. 
+                                Conversely, as you may verify, \(x = -1/\sqrt 2\) and \(x = 1/\sqrt 2\) both correspond to relative minima.
+                                Because \(\lim_{x \to -\infty} d\) \(= \infty\) and \(\lim_{x \to \infty} d\) \(= \infty,\)  
+                                the absolute minimum of \(d\) must lie at each of these relative minima. (See Figure 7.)
+                                This result is intuitive because the graph of \(y = x^2\) is symmetrical with respect to \(x = 0,\) 
+                                meaning that there are two points on the parabola for which \(d\) is minimized.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--example 5-->
+                    <div class="example-title"> EXAMPLE \(5\) </div>
+                    <div class="example"> 
+                        <!--example 5 problem-->
+                        <div class="example-problem">  
+                            Find the area of the largest rectangle that can be inscribed in the parabola \(y = 9 - x^2.\)
+                        </div>
+                    </div>
+                    <button onclick="toggle5()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 5 solution-->
+                    <div>
+                        <div id="solution5" class="solution">
+                            <!--figure 8-->
+                            <div class="fig-8">
+                                <img src="../images/Calculus/3/3.8/3.8-8.jpg" class="fig-8__image" alt="">
+                            </div>
+                            <p>
+                                The word <i>inscribed</i> means that the rectangle has two vertices on the parabola and two vertices on the \(x\)-axis,
+                                as shown by Figure 8. Thus, since the rectangle has length \(2x\) and height \(y,\) its area is 
+                                <div class="numbered-equations">
+                                    <p>
+                                        \(A = xy.\)
+                                        <span> \((1)\) </span>
+                                    </p>
+                                </div>
+                                However, we know that 
+                                <div class="numbered-equations">
+                                    <p>
+                                        \(y = 9 - x^2.\)
+                                        <span> \((2)\) </span>
+                                    </p>
+                                </div>
+                                Substituting equation \((2)\) into equation \((1)\) enables us to eliminate \(y\) 
+                                and express \(A\) solely in terms of \(x\!:\)
+                                \[A = xy = x(9 - x^2).\]
+                                Finding the critical numbers of \(A(x),\) we get 
+                                \[
+                                \ba 
+                                A'(x) = 9 - 3x^2 &= 0 \implies \\
+                                x &= \sqrt 3 \\
+                                x &= - \sqrt 3, \\
+                                \ea 
+                                \]
+                                both of which are relative maxima by the First Derivative Test. 
+                                Furthermore, the domain for \(A(x)\) is \(0 \leq x \leq 3,\)
+                                and at each endpoint the area is \(0\) because the rectangle collapses into a line.
+                                Thus, these relative maxima are absolute maxima.
+                                \(x = -\sqrt 3\) corresponds to the point in the second quadrant, 
+                                and \(x = \sqrt 3\) corresponds to the one in the first quadrant.
+                                For these values, \(y = 6.\) 
+                                Thus, a rectangle of length \(2 \sqrt 3\) and height \(6\) is the largest possible rectangle that can be inscribed.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        Let us now discuss the applications of optimization in business, especially as they relate to maximizing profit. 
+                        A firm's profit function, \(P(x),\) is defined by 
+                        \[
+                        \ba 
+                        \textrm{profit} &= \textrm{revenue} - \textrm{cost} \\
+                        P(x) &= R(x) - C(x),
+                        \ea 
+                        \]
+                        where \(x\) is the number of units produced.
+                        We will analyze cases in which a business's cost function is non-constant, since
+                        in reality a firm needs to expand in order to produce a greater quantity of goods.
+                        (You will see most cost functions with the property that \(\lim_{x \to \infty} c(x) = \infty\) for this reason; expansion is expensive.) 
+                        <i>Revenue</i> is the amount of money generated by the firm before cost is considered, and it is expressed by
+                        \[\textrm{revenue} = \textrm{quantity} \cdot \textrm{price}.\]
+                        A firm's <i>marginal cost</i> is the cost of producing one additional unit. 
+                        Thus, it can be modeled by the derivative of the cost function, or \(C'(x).\) 
+                        A firm's <i>average cost</i> is defined by the cost divided by the quantity produced:
+                        \[\overline{C}(x) = \frac{C(x)}{x}.\]
+                        At the quantity \(x\) at which the cost function is minimized, 
+                        it follows that the average cost function is also minimized and that the marginal cost function equals \(0.\)
+                    </p>
+
+                    <!-- business terminology -->
+                    <div class="box-title"> BUSINESS OPTIMIZATION PROBLEMS </div>
+                    <div class="box">
+                        <ul>
+                            <li>
+                                A firm's profit function, \(P(x),\) is defined by
+                                \[P(x) = R(x) - C(x),\]
+                                where \(R(x)\) is the revenue function and \(C(x)\) is the cost function. 
+                            </li>
+                            <li>
+                                The revenue function of a business is defined by 
+                                \[\textrm{revenue} = \textrm{quantity} \cdot \textrm{price}.\]
+                            </li>
+                            <li>
+                                <i>Marginal cost</i> is the cost of producing one additional unit. 
+                                It is represented by \(C'(x).\)
+                            </li>
+                            <li>
+                                <i>Average cost</i> is defined by cost divided by quantity produced:
+                                \[\overline{C}(x) = \frac{C(x)}{x}.\]
+                            </li>
+                            <li>
+                                If cost is minimized, then average cost is also minimized and marginal cost equals \(0.\) 
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--example 6-->
+                    <div class="example-title"> EXAMPLE \(6\) </div>
+                    <div class="example"> 
+                        <!--example 6 problem-->
+                        <div class="example-problem">  
+                            Isaiah operates a food truck in which he sells hot dogs for \(12\) dollars each. 
+                            The cost, in dollars, of him producing \(x\) hot dogs is modeled by the function 
+                            \[C(x) = 3000 - 100x + x^2.\]
+                            How many hot dogs should Isaiah sell to maximize his profit from hot-dog sales?
+                            What are his profit and average cost at that output level? (Calculator required.)
+                        </div>
+                    </div>
+                    <button onclick="toggle6()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 6 solution-->
+                    <div>
+                        <div id="solution6" class="solution">
+                            <p>
+                                The profit function is given by (revenue) \(-\) (price).
+                                The revenue function is \(12x,\) so we have 
+                                \[
+                                \ba 
+                                P(x) &= 12x - (3000 - 100x + x^2) \\ 
+                                &= -x^2 + 112x - 3000.
+                                \ea 
+                                \]
+                                We now need to minimize \(P(x).\) 
+                                Let us compute its derivative and find its critical numbers:
+                                \[
+                                \ba 
+                                P'(x) = -2x + 112 &= 0\\ 
+                                x &= 56. \\
+                                \ea 
+                                \]
+                                For \(x \lt 56,\) \(P' > 0;\) for \(x \gt 56,\) \(P' \lt 0.\) 
+                                Thus, the critical number corresponds to an absolute minimum. 
+                                We also know that the domain of \(P(x)\) is \(x \geq 0,\) 
+                                so we need to consider its behavior at \(x = 0\) and as \(x \to \infty.\)
+                                At \(x = 0,\) \(P = -3000;\) as \(x \to \infty,\) \(P \to -\infty.\) 
+                                From this analysis, \(P\) has a maximum value, and it must be found at the critical number, \(x = 56.\) 
+                                Therefore, Isaiah should sell \(\boxed{56}\) hot dogs in order to maximize his profit. 
+                                At this output level, his profit is \(P(56)\) \(= \boxed{136}\) dollars, 
+                                and his average cost is \(\overline{C}(56)\) \(= C(56)/56\) \(= \boxed{9.571}\) dollars per hot dog.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--example 7-->
+                    <div class="example-title"> EXAMPLE \(7\) </div>
+                    <div class="example"> 
+                        <!--example 7 problem-->
+                        <div class="example-problem">  
+                            A store sells makeup products. 
+                            \(40\) people buy eyeliner pencils each day when they are sold for \(\$10\) each.
+                            For every \(\$2\) increase in price, the manager predicts that \(4\) fewer people will buy the pencils.
+                            Determine the price of the pencils such that the store maximizes its revenue from eyeliner sales.
+                        </div>
+                    </div>
+                    <button onclick="toggle7()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 7 solution-->
+                    <div>
+                        <div id="solution7" class="solution">
+                            <p>
+                                We need to write an expression for the revenue from eyeliner sales.
+                                Let \(R(x)\) be the revenue function, where \(x\) is the increment of the price in dollars. 
+                                For every \(\$2\) increase, the price is \((10 + 2x)\) and the quantity of pencils sold is \((40 - 4x).\)
+                                Revenue is the product of quantity and price, so we have
+                                \[
+                                \ba 
+                                \textrm{revenue} &= \textrm{quantity} \cdot \textrm{price} \\ 
+                                R(x) &= (40 - 4x)(10 + 2x) \\
+                                &= -8x^2 + 40x + 400.
+                                \ea 
+                                \]
+                                We must find the maximum of this revenue expression, so let us find its critical numbers:
+                                \[
+                                \ba 
+                                R'(x) = -16x + 40 &= 0 \\
+                                x &= \frac{40}{16} = 2.5.
+                                \ea 
+                                \]
+                                For \(x \lt 2.5,\) \(R' \gt 0;\) for \(x \gt 2.5,\) \(R' \lt 0.\) 
+                                Thus, the First Derivative Test states that \(x = 2.5\) corresponds to a relative maximum of \(R(x).\)
+                                Additionally, the domain of \(R(x)\) is \(x \geq 0,\) so we need to consider \(R(0)\) and its behavior as \(x \to \infty \!:\)
+                                <ul>
+                                    <li>
+                                        \(R(0) = 400.\)
+                                    </li>
+                                    <li>
+                                        \(R(2.5) = 450.\)
+                                    </li>
+                                    <li>
+                                        \(\ds \lim_{x \to \infty} R(x) = -\infty.\)
+                                    </li>
+                                </ul>
+                                From these candidates, \(x = 2.5\) corresponds to the absolute maximum of \(R(x).\) 
+                                Therefore, the store should raise the price of the eyeliner pencil by \(\boxed{\$2.5.}\) 
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        The following examples are complex problems that require calculators, so we will only concern ourselves with the setup.
+                        You should graph the function on a calculator to verify that a solution corresponds to an absolute extremum.
+                        Additionally, some of the exercises for this section do not contain in-depth explanations for why a quantity is an absolute extremum;
+                        you should be able to provide a justification yourself or graph the function.
+                    </p>
+                    <!--example 8-->
+                    <div class="example-title"> EXAMPLE \(8\) </div>
+                    <div class="example"> 
+                        <!--example 8 problem-->
+                        <div class="example-problem">  
+                            <!--figure 9-->
+                            <div class="fig-9">
+                                <img src="../images/Calculus/3/3.8/3.8-9.jpg" class="fig-9__image" alt="">
+                            </div>
+                            A lifeguard on the shoreline rushes to assist a drowning swimmer
+                            located \(20\) feet east from the lifeguard and \(8\) feet from the shoreline.
+                            The lifeguard can run at \(10\) feet per second and swim at \(6\) feet per second.
+                            She runs a distance \(x\) before jumping into the water and swimming to the drowning person, 
+                            as shown by Figure 9. 
+                            At what distance \(x\) should the lifeguard enter the water in order to minimize the time to rescue the swimmer?
+                            (Note: Figure not drawn to scale.) (Calculator required.)
+                        </div>
+                    </div>
+                    <button onclick="toggle8()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 8 solution-->
+                    <div>
+                        <div id="solution8" class="solution">
+                            <p>
+                                We need to derive an expression for the time, \(t,\) that the lifeguard takes to rescue the swimming person.
+                                The distance that she runs is \(x,\) and the distance that she swims is \(\sqrt{(20 - x)^2 + 64}.\)
+                                We understand that 
+                                \[\textrm{time} = \frac{\textrm{distance}}{\textrm{speed}}. \]
+                                The lifeguard's speed is \(10\) feet per second onshore and \(6\) feet per second in water. 
+                                Therefore, the lifeguard's time for the first part of the trip, running onshore, is   
+                                \[t_1 = \frac{x}{10}.\]
+                                Her time for the second part of the trip, swimming, is 
+                                \[t_2 = \frac{\sqrt{(20 - x)^2 + 64}}{6}. \]
+                                Her total time, \(t,\) is the sum of these times:
+                                \[
+                                \ba 
+                                t &= t_1 + t_2 \\
+                                &= \frac{x}{10} + \frac{\sqrt{(20 - x)^2 + 64}}{6}.
+                                \ea 
+                                \]
+                                This expression is solely in terms of \(x,\) so we can differentiate to locate its critical numbers:
+                                \[
+                                \ba 
+                                \frac{\dd t}{\dd x} = \frac{1}{10} - \frac{20 - x}{6 \sqrt{x^2 - 40x + 464}} &= 0 \implies \\
+                                x &= 14.
+                                \ea 
+                                \]
+                                <!--figure 10-->
+                                <div class="fig-10">
+                                    <img src="../images/Calculus/3/3.8/3.8-10.jpg" class="fig-10__image" alt="">
+                                </div>
+                                This value corresponds to a relative minimum, 
+                                as you may verify by noticing that \(\dd t/ \dd x\) changes sign from negative to positive there. 
+                                The relative minimum is the location of the absolute minimum, as shown by the graph of \(y = t(x)\) (Figure 10).
+                                At \(x = 14,\) \(t = 3.067.\) 
+                                The lifeguard should run \(14\) feet onshore before jumping into the water in order to rescue the swimmer as quickly as possible:
+                                only \(3.067\) seconds!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--example 9-->
+                    <div class="example-title"> EXAMPLE \(9\) </div>
+                    <div class="example"> 
+                        <!--example 9 problem-->
+                        <div class="example-problem">  
+                            <!--figure 11-->
+                            <div class="fig-11">
+                                <img src="../images/Calculus/3/3.8/3.8-11.jpg" class="fig-11__image" alt="">
+                            </div>
+                            In Figure 11, find the value of \(x\) such that \(\theta\) is maximized. (Calculator required.)
+                            <p style="opacity: 0;"> 
+                                "You're only happy when your sorry head is filled with dope; . . . I hope you make it to the day you're twenty-eight years old"
+                            </p>
+
+                        </div>
+                    </div>
+                    <button onclick="toggle9()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 9 solution-->
+                    <div>
+                        <div id="solution9" class="solution">
+                            <p>
+                                We know that the three angles \(\theta,\) \(\tan^{-1}(x/4),\) and \(\tan^{-1}(3/(x + 1))\) add up to \(\pi.\)
+                                Thus, we have
+                                \[\theta = \pi - \tan^{-1} \left( \frac{x}{4} \right) - \tan^{-1} \left(\frac{3}{x + 1}\right). \]
+                                Differentiating and setting the resulting expression equal to \(0\) produce
+                                \[
+                                \ba 
+                                \frac{\dd \theta}{\dd x} = \frac{x^2 + 8x - 8}{(x^2 + 16)(x^2 + 2x + 10)} &= 0 \implies \\  
+                                x &= 0.899.
+                                \ea 
+                                \]
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--example 10-->
+                    <div class="example-title"> EXAMPLE \(10\) </div>
+                    <div class="example"> 
+                        <!--example 10 problem-->
+                        <div class="example-problem">  
+                            <!--figure 12-->
+                            <div class="fig-12">
+                                <img src="../images/Calculus/3/3.8/3.8-12.jpg" class="fig-12__image" alt="">
+                            </div>
+                            Two power towers—one of height \(10\) meters and the other of height \(15\) meters—are located \(30\) meters apart. 
+                            Wire is anchored from the ground to the top of each tower, as shown by Figure 11. 
+                            Where should the wires be anchored so that the least amount of wire is used? 
+                            (Calculator required.)
+                        </div>
+                    </div>
+                    <button onclick="toggle10()" class="solution-button"> SHOW SOLUTION ▼ </button>
+                    <!--example 10 solution-->
+                    <div>
+                        <div id="solution10" class="solution">
+                            <p>
+                                To obtain the expression for the total amount of wire required, 
+                                we need to find the amount of wire needed from the anchor to the top of each tower.
+                                For the \(15 \; \textrm{m}\) tower, let \(x\) be the distance from the base of the power to the anchor point. 
+                                It then follows that the amount of wire needed is 
+                                \[w_1 = \sqrt{x^2 + 15^2} = \sqrt{x^2 + 225}. \]
+                                For the \(10 \; \textrm{m}\) tower, the distance from the anchor point to its base is \(30 - x.\)
+                                The amount of wire needed is then 
+                                \[w_2 = \sqrt{(30 - x)^2 + 10^2} = \sqrt{x^2 - 60x + 1000}.\] 
+                                Therefore, the total amount of wire required is 
+                                \[
+                                \ba 
+                                w &= w_1 + w_2 \\ 
+                                &= \sqrt{x^2 + 225} + \sqrt{x^2 - 60x + 1000}. 
+                                \ea 
+                                \]
+                                Finding its derivative and equating it to \(0\) give 
+                                \[
+                                \ba 
+                                \frac{\dd w}{\dd x} = \frac{x - 30}{\sqrt{x^2 - 60x + 1000}} + \frac{x}{\sqrt{x^2 + 225}} &= 0 \implies \\
+                                x &= 18.
+                                \ea 
+                                \]
+                                This critical number corresponds to the absolute minimum of \(w.\)
+                                Thus, the optimal spot to anchor the wires is \(18\) meters right of the \(15 \; \textrm{m}\) tower.
+                            </p>
+                        </div>
+                    </div>
+
+        </section>
+        <style>
+            .fig-1{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-1__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-1::before{
+                content:'FIGURE 1';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-2{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-2__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-2::before{
+                content:'FIGURE 2';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-3{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-3__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-3::before{
+                content:'FIGURE 3';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-4{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-4__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-4::before{
+                content:'FIGURE 4';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-5{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-5__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-5::before{
+                content:'FIGURE 5';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-6{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-6__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-6::before{
+                content:'FIGURE 6';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-7{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-7__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-7::before{
+                content:'FIGURE 7';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-8{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-8__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-8::before{
+                content:'FIGURE 8';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-9{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-9__image{
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+
+            .fig-9::before{
+                content:'FIGURE 9';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-10{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-10__image{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .fig-10::before{
+                content:'FIGURE 10';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-11{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-11__image{
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+
+            .fig-11::before{
+                content:'FIGURE 11';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <style>
+            .fig-12{
+                height: auto;
+                float: right;
+                margin-left: 4vw;
+                position: relative;
+            }
+
+            .fig-12__image{
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+
+            .fig-12::before{
+                content:'FIGURE 12';
+                display: block;
+                background: rgb(110, 80, 80);
+                font-size: 90%;
+                color: white;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        </style>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+        <script id="AMSmath" async src="TeX/AMSmath.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="../js/hamburger-menu.js"></script>
+        <script src="../js/toggle-solutions.js"></script>
+
+    </body>
+    <footer>
+        <div class="footer-sections">
+            <div class="footer-logo">
+                <div style="padding-bottom: 10%;"> VALCULUS </div>
+                <a href="https://discord.gg/CbXg72x9Q9"> <img src="../images/discord-icon.png" class="footer-image-icon" alt=""> </a>
+                <img src="../images/paypal-icon.png" class="footer-image-icon" alt="">
+                <img src="../images/venmo-icon.png" class="footer-image-icon venmo-icon" alt="">
+            </div>
+            <div class="footer-nav-column">
+                <ul class="footer-nav-column__ul">
+                    <li>
+                        <a class="footer-link" href="../index.html">Home</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../about.html">About</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html">FAQ</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../contact.html">Contact</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../contact.html">Discord</a> 
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-column">
+                <ul class="footer-nav-column__ul">
+                    <li>
+                        <a class="footer-link" href="../index.html"> Section Notes </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html"> AP® Calculus  </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html"> Before Taking Calculus  </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html"> Practice Tests  </a> 
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav-column">
+                <ul class="footer-nav-column__ul">
+                    <li>
+                        <a class="footer-link" href="../index.html">Report a Problem</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../about.html"> Terms of Use </a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../faq.html">Privacy Policy</a> 
+                    </li>
+                    <li>
+                        <a class="footer-link" href="../contact.html">Donate</a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <img src="../images/copyright-icon.jpg" class="copyright-image" alt="">    
+    <p class="ap-notice">
+        AP® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website.
+    </p>
+    </footer>
+</html>
